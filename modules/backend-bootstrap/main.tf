@@ -27,7 +27,7 @@ resource "aws_s3_bucket" "tf_state" {
   # }
 
   tags = {
-    Name      = "terraform-state"
+    Name      = "jb-terraform-state"
     ManagedBy = "terraform"
   }
 }
@@ -68,7 +68,7 @@ resource "aws_dynamodb_table" "tf_lock" {
   }
 
   tags = {
-    Name      = "terraform-state-lock"
+    Name      = "jb-tf-state-lock"
     ManagedBy = "terraform"
   }
 }
