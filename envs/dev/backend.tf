@@ -1,12 +1,13 @@
 terraform {
-  required_version = ">= 1.6.0"
+  required_version = ">= 1.10.0"
 
   backend "s3" {
-    bucket         = "terrafrom-backedn-class-dev-ankit"
-    key            = "envs/dev/terraform.tfstate"
-    region         = "ap-south-1"
-    # dynamodb_table = "terraform-state-lock"
-    encrypt        = true
+    bucket = "jb-tfstate-aps1-d14j2"
+    key    = "envs/dev/terraform.tfstate"
+    region = "ap-south-1"
+    # dynamodb_table = "jb-tf-state-lock"
+    use_lockfile = true
+    encrypt      = true
   }
 
   required_providers {

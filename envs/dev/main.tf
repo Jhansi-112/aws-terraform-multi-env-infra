@@ -3,6 +3,7 @@ module "network" {
   name_prefix = local.name_prefix
 }
 
+/*
 module "security" {
   source          = "../../modules/security"
   name_prefix     = local.name_prefix
@@ -33,7 +34,8 @@ module "compute" {
   min_size               = 1
   max_size               = 4
 }
+*/
 
 locals {
-  name_prefix = "myapp-dev"
+  name_prefix = "jb-app-dev"
 }
