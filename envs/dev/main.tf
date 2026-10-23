@@ -11,7 +11,6 @@ module "security" {
   app_secret_arn  = var.app_secret_arn
 }
 
-/*
 module "alb" {
   source            = "../../modules/alb"
   name_prefix       = local.name_prefix
@@ -21,6 +20,7 @@ module "alb" {
   app_port          = var.app_port
 }
 
+/*
 module "compute" {
   source                 = "../../modules/compute"
   name_prefix            = local.name_prefix
