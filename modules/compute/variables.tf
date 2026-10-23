@@ -6,10 +6,9 @@ variable "environment" {
   type = string
 }
 
-variable "ami_name_filter" {
-  description = "Prefix used when Packer tags/names the AMI"
-  type        = string
-  default     = "app-golden-image"
+variable "app_port" {
+  type    = number
+  default = 8080
 }
 
 variable "instance_type" {

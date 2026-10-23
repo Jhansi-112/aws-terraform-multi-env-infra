@@ -1,17 +1,17 @@
 ############################################
-# Compute module: custom AMI lookup,
+# Compute module: AMI lookup,
 # Launch Template, Auto Scaling Group,
 # target-tracking scaling policy
 ############################################
 
-# Pulls the latest custom AMI baked by Packer (tagged by this pipeline)
+# Finds the latest Amazon Linux 2023 image (public image from Amazon)
 data "aws_ami" "custom" {
   most_recent = true
-  owners      = ["self"]
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["${var.ami_name_filter}-*"]
+    values = ["al2023-ami-2023.*-x86_64"]
   }
 
   filter {
@@ -31,9 +31,10 @@ resource "aws_launch_template" "app" {
 
   vpc_security_group_ids = [var.app_sg_id]
 
-  # Lightweight bootstrap only — heavy lifting already done in the AMI bake
+  # Start-up script: starts a small web server on the app port
   user_data = base64encode(templatefile("${path.module}/templates/user_data.sh.tpl", {
     environment = var.environment
+    app_port    = var.app_port
   }))
 
   tag_specifications {

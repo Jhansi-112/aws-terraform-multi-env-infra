@@ -20,11 +20,11 @@ module "alb" {
   app_port          = var.app_port
 }
 
-/*
 module "compute" {
   source                 = "../../modules/compute"
   name_prefix            = local.name_prefix
   environment            = "dev"
+  app_port               = var.app_port
   instance_type          = "t3.micro"
   instance_profile_name  = module.security.instance_profile_name
   app_sg_id              = module.security.app_sg_id
@@ -34,7 +34,6 @@ module "compute" {
   min_size               = 1
   max_size               = 4
 }
-*/
 
 locals {
   name_prefix = "jb-app-dev"
