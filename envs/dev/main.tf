@@ -3,7 +3,6 @@ module "network" {
   name_prefix = local.name_prefix
 }
 
-/*
 module "security" {
   source          = "../../modules/security"
   name_prefix     = local.name_prefix
@@ -12,6 +11,7 @@ module "security" {
   app_secret_arn  = var.app_secret_arn
 }
 
+/*
 module "alb" {
   source            = "../../modules/alb"
   name_prefix       = local.name_prefix
